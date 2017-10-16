@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{sanduiche.titulo}}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="slide-container">
+    <ion-slides *ngIf="sanduiche" pager="true" autoplay="3000" >
+      <ion-slide>
+        <img [src]="sanduiche.linkImagem">
+      </ion-slide>
+      <ion-slide>
+          <img [src]="'../../assets/img/sanduiches/sanduiche-generico.png'? '../../assets/img/sanduiches/sanduiche-generico.png': '../assets/img/sanduiches/sanduiche-generico.png'"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <h2 text-center class="preco" >{{sanduiche.preco | currency:'BRL':true}}</h2>
+</ion-content>

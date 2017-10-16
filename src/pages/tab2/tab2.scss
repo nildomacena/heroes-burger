@@ -1,6 +1,38 @@
 page-tab2 {
     .preco{
         
+        font-weight: 300;
+    }
+    .card-title{
         font-weight: 700;
+        color: #e65100;
+
+
+    }
+    .card-background{
+
+        ion-card {
+            position: relative;
+            text-align: center;
+          }
+        
+          .card-title {
+            position: absolute;
+            top: 36%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #FFF;
+            text-shadow: 3px 1px 1px black;
+          }
+        
+          .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #FFF;
+            text-shadow: 3px 1px 1px black;
+          }
     }
 }

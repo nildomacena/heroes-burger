@@ -8,6 +8,7 @@
 
 
 <ion-content>
+  <!--
   <ion-grid>
     <ion-row>
       <ion-col no-padding>
@@ -15,7 +16,7 @@
               <img src="../../assets/img/sanduiches/flash.jpg"/>
               <ion-card-content>
                 <ion-card-title>
-                  Flash -  R$ 9,00
+                  Flash
                   </ion-card-title>
                 <p>
                   Hambúrguer, queijo, presunto, ovo e alface
@@ -37,14 +38,88 @@
           </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>-->
+  <div class="card-background">
+    <ion-card *ngFor="let sanduiche of sanduiches" (click)="goToSanduiche(sanduiche)" >
+      <img [src]="'../assets/img/sanduiches/'+sanduiche.imagem"/>
+      <div class="card-title">{{sanduiche.titulo}}</div>
+      <div class="card-subtitle">{{sanduiche.preco | currency:'BRL':true}}<br>Hambúrguer, queijo, presunto, ovo e alface</div>
+    </ion-card>
+  </div>
+    <!--
+    <ion-card>
+      <img [src]="'../../assets/img/sanduiches/flash.jpg'? '../../assets/img/sanduiches/flash.jpg': '../assets/img/sanduiches/flash.jpg'"/>
+      <div class="card-title">Flash</div>
+      <div class="card-subtitle">R$9,00<br>Hambúrguer, queijo, presunto, ovo e alface</div>
+    </ion-card>
+  
+    <ion-card>
+      <img [src]="'../../assets/img/sanduiches/supergirl.jpg'? '../../assets/img/sanduiches/deadpool.jpg': '../assets/img/sanduiches/deadpool.jpg'"/>
+      <div class="card-title">Deadpool</div>
+      <div class="card-subtitle">R$9,50<br>Hambúrguer, bacon, queijo, presunto e salada</div>
+    </ion-card>
+  
+    <ion-card>
+      <img [src]="'../../assets/img/sanduiches/supergirl.jpg'? '../../assets/img/sanduiches/supergirl.jpg': '../assets/img/sanduiches/supergirl.jpg'"/>
+      <div class="card-title">Supergirl</div>
+      <div class="card-subtitle">R$9,50<br>Cheddar, frango, queijo, presunto, bacon e salada</div>
+    </ion-card>
+  
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/capitao-america.jpg'? '../../assets/img/sanduiches/capitao-america.jpg': '../assets/img/sanduiches/capitao-america.jpg'"/>
+      <div class="card-title">Capitão América</div>
+      <div class="card-subtitle">R$8,00<br>Queijo, presunto, ovo e salada</div>
+    </ion-card>
+  
+  
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/viuva-negra.jpg'? '../../assets/img/sanduiches/viuva-negra.jpg': '../assets/img/sanduiches/viuva-negra.jpg'"/>
+      <div class="card-title">Viúva Negra</div>
+      <div class="card-subtitle">R$12,50<br>Filé de frango, Presunto, queijo, bacon, ovo e salada</div>
+    </ion-card>
+    <ion-card>
+      <img [src]="'../../assets/img/sanduiches/mulher-maravilha.jpg'? '../../assets/img/sanduiches/mulher-maravilha.jpg': '../assets/img/sanduiches/mulher-maravilha.jpg'"/>
+      <div class="card-title">Mulher Maravilha</div>
+      <div class="card-subtitle">R$12,50<br>Filé de alcatra, Presunto, queijo, bacon, ovo e salada</div>
+    </ion-card>
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/superman.jpg'? '../../assets/img/sanduiches/superman.jpg': '../assets/img/sanduiches/superman.jpg'"/>
+      <div class="card-title">Super-homem</div>
+      <div class="card-subtitle">R$12,50<br>Filé de alcatra, filé de frango, Presunto, queijo, bacon, ovo e salada</div>
+    </ion-card>
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/hulk.jpg'? '../../assets/img/sanduiches/hulk.jpg': '../assets/img/sanduiches/hulk.jpg'"/>
+      <div class="card-title">Hulk</div>
+      <div class="card-subtitle">R$15,00<br>Filé de frango, Presunto, queijo, bacon, ovo e salada</div>
+    </ion-card>
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/homem-formiga.jpg'? '../../assets/img/sanduiches/homem-formiga.jpg': '../assets/img/sanduiches/homem-formiga.jpg'"/>
+      <div class="card-title">Homem-formiga</div>
+      <div class="card-subtitle">R$8,50<br>Hambúrguer, queijo e salada.</div>
+    </ion-card>
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/lanterna-verde.jpg'? '../../assets/img/sanduiches/lanterna-verde.jpg': '../assets/img/sanduiches/lanterna-verde.jpg'"/>
+      <div class="card-title">Lanterna Verde</div>
+      <div class="card-subtitle">R$10,00<br>Frango desfiado, queijo coalho, milho verde, cenoura e presunto</div>
+    </ion-card>
+    <ion-card>
+        <img [src]="'../../assets/img/sanduiches/spiderman.jpg'? '../../assets/img/sanduiches/spiderman.jpg': '../assets/img/sanduiches/spiderman.jpg'"/>
+      <div class="card-title">Homem Aranha</div>
+      <div class="card-subtitle">R$10,00<br>Calabresa, queijo, presunto, ovo e salada</div>
+    </ion-card>
+  </div>
+
+  <!--
   <ion-card margin-bottom>
     <img src="../../assets/img/sanduiches/flash.jpg"/>
     <ion-card-content>
-      <ion-card-title>
-        Flash -  R$ 9,00
-        </ion-card-title>
-      <p>
+      <ion-card-title no-padding>
+        Flash
+      </ion-card-title>
+      <p class="preco">
+          R$ 9,00
+      </p>
+      <p> 
         Hambúrguer, queijo, presunto, ovo e alface
       </p>
     </ion-card-content>
@@ -176,5 +251,5 @@
           </ion-row>
         </ion-grid>
     </ion-card-content>
-  </ion-card>
+  </ion-card>-->
 </ion-content>
