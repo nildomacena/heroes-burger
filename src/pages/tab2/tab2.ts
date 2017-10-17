@@ -23,11 +23,11 @@ export class Tab2Page {
       {titulo: "Hulk", preco: 15, ingredientes: "Filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "hulk.jpg"},
       {titulo: "Homem Formiga", preco: 8.5, ingredientes: "Hambúrguer, queijo e salada", imagem: "homem-formiga.jpg"},
       {titulo: "Lanterna Verde", preco: 10, ingredientes: "Frango desfiado, queijo coalho, milho verde, cenoura e presunto", imagem: "lanterna-verde.jpg"},
-      {titulo: "Homem Aranha", preco: 10, ingredientes: "Calabresa, queijo, presunto, ovo e salada", imagem: "spiderman.jpg"}
+      {titulo: "Homem Aranha", preco: 10, ingredientes: "Calabresa, queijo, presunto, ovo e salada", imagem: "avatar.jpg"}
     ]
     this.sanduiches.map(sanduiche => {
       if(this.platfom.is('cordova'))
-        sanduiche['linkImagem'] = './../assets/img/sanduiches/'+sanduiche.imagem;
+        sanduiche['linkImagem'] = 'assets/img/sanduiches/'+sanduiche.imagem;
       else
         sanduiche['linkImagem'] = '../../assets/img/sanduiches/'+sanduiche.imagem;
     })

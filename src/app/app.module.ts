@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { SuperTabsController,SuperTabsModule } from 'ionic2-super-tabs';
 
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -20,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp),
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

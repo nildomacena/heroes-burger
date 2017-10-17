@@ -15,21 +15,82 @@
 
 <ion-content>
   <div class="slide-container">
-    <ion-slides *ngIf="sanduiche" pager="true" autoplay="3000" >
+    <ion-slides *ngIf="sanduiche" pager="true" loop="true" autoplay="3500" >
       <ion-slide>
         <img [src]="sanduiche.linkImagem">
       </ion-slide>
       <ion-slide>
-          <img [src]="'../../assets/img/sanduiches/sanduiche-generico.png'? '../../assets/img/sanduiches/sanduiche-generico.png': '../assets/img/sanduiches/sanduiche-generico.png'"/>
+          <img [src]="'../../assets/img/sanduiches/sanduiche-generico.png'? '../../assets/img/sanduiches/sanduiche-generico.png': 'assets/img/sanduiches/sanduiche-generico.png'"/>
       </ion-slide>
     </ion-slides>
   </div>
   <h2 text-center class="preco" >{{sanduiche.preco | currency:'BRL':true}}</h2>
+  <hr>
   <div margin-left>
     <h5 no-padding no-margin style="color: #e65100" >Descrição</h5>
     <p class="ingredientes">{{sanduiche.ingredientes}}</p>
   </div>
+  <hr>
+  <!--
   <ion-fab bottom right >
       <button ion-fab (click)="ligar()" ><ion-icon name="call"></ion-icon></button>
   </ion-fab>
+-->
+  <div class="avaliar">
+    <img src="assets/img/avatar.jpg">
+    <p text-center>Avalie esse lanche</p>
+    
+    <ion-grid> 
+      <ion-row *ngIf="estrelas">
+        <ion-col>
+          <button ion-button icon-only clear (click)="selecionaEstrela(0)">
+              <ion-icon [name]="estrelas[0]? 'star': 'star-outline'"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          
+          <button ion-button icon-only clear (click)="selecionaEstrela(1)">
+            <ion-icon [name]="estrelas[1]? 'star': 'star-outline'"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          
+          <button ion-button icon-only clear (click)="selecionaEstrela(2)">
+            <ion-icon [name]="estrelas[2]? 'star': 'star-outline'"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          
+          <button ion-button icon-only clear (click)="selecionaEstrela(3)">
+            <ion-icon [name]="estrelas[3]? 'star': 'star-outline'"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          
+          <button ion-button icon-only clear (click)="selecionaEstrela(4)">
+            <ion-icon [name]="estrelas[4]? 'star': 'star-outline'"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col><button ion-button full [disabled]="!avaliou" clear >Enviar</button></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <br><br>
 </ion-content>
+
+<ion-footer>
+  
+    <ion-grid no-margin no-padding>
+      <ion-row>
+        <ion-col><button id="botao-esquerdo" clear no-margin ion-button icon-start full><ion-icon name="chatbubbles"></ion-icon>Comentar</button></ion-col>
+        <ion-col><button id="botao-direito" (click)="ligar()" clear no-margin ion-button icon-start full><ion-icon name="call"></ion-icon>Liga pra gente</button></ion-col>
+      </ion-row>
+    </ion-grid>
+  
+</ion-footer>
