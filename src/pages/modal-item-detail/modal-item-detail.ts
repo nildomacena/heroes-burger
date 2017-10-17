@@ -20,4 +20,7 @@ export class ModalItemDetailPage {
   dismiss(){
     this.viewCtrl.dismiss();
   }
+  ligar(){
+    console.log('ligar')
+  }
 }

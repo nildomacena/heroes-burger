@@ -25,4 +25,11 @@
     </ion-slides>
   </div>
   <h2 text-center class="preco" >{{sanduiche.preco | currency:'BRL':true}}</h2>
+  <div margin-left>
+    <h5 no-padding no-margin style="color: #e65100" >Descrição</h5>
+    <p class="ingredientes">{{sanduiche.ingredientes}}</p>
+  </div>
+  <ion-fab bottom right >
+      <button ion-fab (click)="ligar()" ><ion-icon name="call"></ion-icon></button>
+  </ion-fab>
 </ion-content>

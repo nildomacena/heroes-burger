@@ -1,9 +1,16 @@
 page-modal-item-detail {
+    ion-content{
+        background: #f5f5f5 !important;
+    }
     .slide-container{
         height: 58vw;
     }
     .preco{
         font-weight: 700;
         color: #e65100;
+    }
+    .ingredientes{
+        margin-top: 5px;
+        font-size: 120%;
     }
 }
