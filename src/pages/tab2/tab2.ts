@@ -47,5 +47,5 @@ export class Tab2Page {
   ligar(){
     console.log('ligar')
   }
-  
+    
 }
