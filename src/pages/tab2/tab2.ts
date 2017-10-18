@@ -1,3 +1,4 @@
+import { UtilProvider } from './../../providers/util/util';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Platform } from 'ionic-angular';
 
@@ -10,7 +11,13 @@ export class Tab2Page {
 
   sanduiches: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public platfom: Platform) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController, 
+    public platfom: Platform,
+    public util: UtilProvider
+  ) {
     console.log(this.platfom.is('cordova'));
     this.sanduiches = [
       {titulo: "Flash", preco: 9, ingredientes: "Hambúrguer, queijo, presunto, ovo e alface", imagem: "flash.jpg"},
@@ -31,7 +38,6 @@ export class Tab2Page {
       else
         sanduiche['linkImagem'] = '../../assets/img/sanduiches/'+sanduiche.imagem;
     })
-    console.log(this.sanduiches);
   }
 
   ionViewDidLoad() {
@@ -45,7 +51,7 @@ export class Tab2Page {
   }
 
   ligar(){
-    console.log('ligar')
+    this.util.ligar();
   }
     
 }

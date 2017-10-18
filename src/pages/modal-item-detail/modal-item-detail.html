@@ -75,20 +75,44 @@
       <ion-row>
         <ion-col></ion-col>
         <ion-col></ion-col>
-        <ion-col><button ion-button full [disabled]="!avaliou" clear >Enviar</button></ion-col>
+        <ion-col><button ion-button full [disabled]="!avaliou" (click)="enviarAvaliacao()" clear >Enviar</button></ion-col>
         <ion-col></ion-col>
         <ion-col></ion-col>
       </ion-row>
     </ion-grid>
   </div>
-  <br><br>
+  <br><hr>
+  <h5 text-center>Comentários</h5>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/avatar2.png">
+      </ion-avatar>
+      <h2>Mickey</h2>
+      <p>Ótimo sanduíche. Bem saboroso! Vou pedir novamente da próxima vez!</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/avatar3.jpeg">
+      </ion-avatar>
+      <h2>Minnie</h2>
+      <p>Muito gostoso! Vou pedir de novo!</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/avatar4.png">
+      </ion-avatar>
+      <h2>Donald</h2>
+      <p>Bem legal! Gostei!</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer>
   
     <ion-grid no-margin no-padding>
       <ion-row>
-        <ion-col><button id="botao-esquerdo" clear no-margin ion-button icon-start full><ion-icon name="chatbubbles"></ion-icon>Comentar</button></ion-col>
+        <ion-col><button id="botao-esquerdo" (click)="comentar()" clear no-margin ion-button icon-start full><ion-icon name="chatbubbles"></ion-icon>Comentar</button></ion-col>
         <ion-col><button id="botao-direito" (click)="ligar()" clear no-margin ion-button icon-start full><ion-icon name="call"></ion-icon>Liga pra gente</button></ion-col>
       </ion-row>
     </ion-grid>

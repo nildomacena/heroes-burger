@@ -1,3 +1,4 @@
+import { CallNumber } from '@ionic-native/call-number';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -7,8 +8,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SuperTabsController,SuperTabsModule } from 'ionic2-super-tabs';
 
-
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { HeaderColor } from '@ionic-native/header-color';
+import { GoogleMaps } from '@ionic-native/google-maps';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UtilProvider } from '../providers/util/util';
@@ -34,7 +36,11 @@ import { UtilProvider } from '../providers/util/util';
     SplashScreen,
     SuperTabsController,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UtilProvider
+    UtilProvider,
+    GoogleMaps,
+    HeaderColor,
+    ScreenOrientation,
+    CallNumber
   ]
 })
 export class AppModule {}
