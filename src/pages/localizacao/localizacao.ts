@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 import {
   GoogleMaps,
   GoogleMap,
@@ -11,6 +12,8 @@ import {
   Marker
  } from '@ionic-native/google-maps';
  
+declare var google: any;
+
 @IonicPage()
 @Component({
   selector: 'page-localizacao',
@@ -18,6 +21,7 @@ import {
 })
 export class LocalizacaoPage {
   map: GoogleMap;
+  mapJavascript:google.maps.Map;
   mapElement: HTMLElement;
   mapLoaded: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public googleMaps: GoogleMaps) {
@@ -26,15 +30,15 @@ export class LocalizacaoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LocalizacaoPage');
+    this.mapElement = document.getElementById('map');
+
     if(!this.mapLoaded)
-      this.loadMap();
+      this.loadMapJavascript();
   }
 
   loadMap() {
     
-    this.mapElement = document.getElementById('map');
     console.log('loadMap', document.getElementById('map'));
-
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
@@ -62,5 +66,22 @@ export class LocalizacaoPage {
             }
           })
       });
+  }
+  loadMapJavascript(){
+    let latLng = new google.maps.LatLng(-9.5705924, -35.7501363);
+    let marker: google.maps.Marker;
+    let mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    let markerOptions: google.maps.MarkerOptions = {
+      position: latLng,
+      map: this.mapJavascript,
+      icon: 'assets/icon/icon.png'
+    }
+    this.mapJavascript = new google.maps.Map(this.mapElement, mapOptions);
+    marker.setOptions(markerOptions);
+    marker.setMap(this.mapJavascript);
   }
 }
