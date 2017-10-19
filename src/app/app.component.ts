@@ -13,6 +13,7 @@ import { ListPage } from '../pages/list/list';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  logado: boolean = false;
 
   rootPage: any = 'HomePage';
 
@@ -32,13 +33,18 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);      
-      this.headerColor.tint('#e65100');      
+      if(this.platform.is('cordova')){
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);      
+        this.headerColor.tint('#e65100');      
+      }
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
+  login(){
+    this.logado = !this.logado;
+  }
   openLocalizacao(){
     this.nav.push('LocalizacaoPage');
   }

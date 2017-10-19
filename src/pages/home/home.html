@@ -7,6 +7,9 @@
   </ion-navbar>
 </ion-header>
 
+<ion-fab bottom right >
+  <button ion-fab (click)="ligar()" ><ion-icon name="call"></ion-icon></button>
+</ion-fab>
 <super-tabs tabsPlacement="bottom" indicatorColor="white" toolbarColor="white" [config]="{ sideMenu: 'left' }">
   <super-tab [root]="page2" title="Sanduíches"></super-tab>
   <super-tab [root]="page1" title="Combos"></super-tab>

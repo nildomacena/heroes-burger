@@ -49,9 +49,5 @@ export class Tab2Page {
     let modal = this.modalCtrl.create('ModalItemDetailPage',{sanduiche: sanduiche});
     modal.present();
   }
-
-  ligar(){
-    this.util.ligar();
-  }
     
 }

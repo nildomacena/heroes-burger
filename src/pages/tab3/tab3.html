@@ -7,6 +7,16 @@
 </ion-header>
 
 
-<ion-content padding>
-Tab 3
+<ion-content no-padding>
+  <ion-item-group *ngFor="let subItem of itensDiversos.subItens" >
+    <ion-item-divider color="light">{{subItem.titulo}}</ion-item-divider>
+    <ion-item *ngFor="let item of subItem.itens" >
+      <ion-avatar item-start>
+        <img [src]="item.imagem">
+      </ion-avatar>
+      <h2>{{item.titulo}}</h2>
+      <p>{{item.descricao}}</p>
+      <p>{{item.preco | currency:'BRL':true}}</p>
+    </ion-item>
+  </ion-item-group>
 </ion-content>

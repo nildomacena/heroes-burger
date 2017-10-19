@@ -22,3 +22,24 @@
     width: 65%;
     height: 40%;
 }
+
+.toolbar-menu{
+    min-height: 100px;
+}
+
+.avatar{
+    height: 20vw;
+    width: 20vw;
+    border-radius: 40px;    
+}
+
+.nome-login{
+    margin: 0px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+div.logado{
+    background:  #ffb74d ;
+}
