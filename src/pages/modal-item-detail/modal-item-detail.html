@@ -36,8 +36,51 @@
       <button ion-fab (click)="ligar()" ><ion-icon name="call"></ion-icon></button>
   </ion-fab>
 -->
-  <div class="avaliar">
-    <img src="assets/img/avatar.jpg">
+  <div class="avaliar-nao-logado" *ngIf="!user" >
+      <p text-center>Faça login para avaliar esse lanche</p>
+      <ion-grid> 
+          <ion-row *ngIf="estrelas">
+            <ion-col>
+              <button ion-button icon-only clear disabled>
+                  <ion-icon name="star"  ></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              
+              <button ion-button icon-only clear disabled>
+                <ion-icon name="star" ></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              
+              <button ion-button icon-only clear disabled>
+                <ion-icon name="star" ></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              
+              <button ion-button icon-only clear disabled>
+                <ion-icon name="star" ></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              
+              <button ion-button icon-only clear disabled>
+                <ion-icon name="star" ></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <button ion-button menuClose (click)="login()" class="facebook-button" color="fb-color" full ><ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;Login com Facebook</button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+  </div>
+  <div class="avaliar" *ngIf="user">
+    <img [src]="user.photoURL">
     <p text-center>Avalie esse lanche</p>
     
     <ion-grid> 

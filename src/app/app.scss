@@ -30,16 +30,38 @@
 .avatar{
     height: 20vw;
     width: 20vw;
-    border-radius: 40px;    
+    border-radius: 50%; 
 }
 
 .nome-login{
     margin: 0px;
     position: relative;
     top: 50%;
+    font-size: 130%;
     transform: translateY(-50%);
 }
 
 div.logado{
-    background:  #ffb74d ;
+    background:  #ff7043 ;
+    height: 30vw;
+    color: white;
+    font-weight: 700;
+    ion-grid{
+        height: 100%;
+        ion-row{
+            height: 100%;
+            ion-col{
+                height: 100%;
+                img{
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+
+.botao-sair{
+    font-weight: 800;
 }

@@ -1,26 +1,26 @@
 <ion-menu [content]="content">
   <ion-content>
-    <div *ngIf="!logado" >
+    <div *ngIf="!fire.user" >
       <h5 color="primary" text-center>Faça o login para aproveitar todas as promoções!</h5>
       <ion-grid>
         <ion-row>
           <ion-col></ion-col>
           <ion-col>
-            <button ion-button (click)="login()" class="facebook-button" color="fb-color" full ><ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;Login com Facebook</button>
+            <button ion-button menuClose (click)="login()" class="facebook-button" color="fb-color" full ><ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;Login com Facebook</button>
           </ion-col>
           <ion-col></ion-col>
         </ion-row>
       </ion-grid>
       <hr>
     </div>
-    <div *ngIf="logado" class="logado" >
-      <ion-grid>
+    <div *ngIf="fire.user" class="logado" >
+      <ion-grid align-items-center>
         <ion-row>
-          <ion-col col-3>
-            <img src="assets/img/avatar.jpg" alt="" class="avatar" >
+          <ion-col col-4 align-self-center>
+            <img [src]="fire.user.photoURL" alt="" class="avatar" >
           </ion-col>
-          <ion-col col-9>
-            <h5 color="fb-color" class="nome-login" (click)="login()" >Nildo Macena</h5>
+          <ion-col col-8 align-self-center>
+            <p color="fb-color" class="nome-login" (click)="login()" >{{fire.user.displayName}}</p>
           </ion-col>
         </ion-row>
       </ion-grid> 
@@ -32,8 +32,24 @@
       <button menuClose ion-item (click)="openLocalizacao()">
         Nos encontre
       </button>
+      <button menuClose ion-item (click)="openFotos()">
+        Fotos da galera
+      </button>
     </ion-list>
   </ion-content>
+  <ion-footer *ngIf="fire.user" >
+    <ion-grid no-margin no-padding>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+          <p menuClose text-center class="botao-sair" (click)="logout()" >
+            Sair
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

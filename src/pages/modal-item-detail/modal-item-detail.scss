@@ -2,6 +2,20 @@ page-modal-item-detail {
     ion-content{
         background: #f5f5f5 !important;
     }
+    .avaliar-nao-logado{
+        background: #e0f2f1 ;
+        height: 180px;
+        width: 100%;
+        margin-top: 20px;
+        p{
+            margin: 0px 0px 30px 0;
+            font-size: 110%;
+            font-weight: 500;
+            top: 10px;
+            position: relative;
+        }
+    }
+
     .avaliar{
         background: #e0f2f1 ;
         height: 150px;

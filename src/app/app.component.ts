@@ -1,3 +1,4 @@
+import { FireProvider } from './../providers/fire/fire';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HeaderColor } from '@ionic-native/header-color';
 import { Component, ViewChild } from '@angular/core';
@@ -14,14 +15,20 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   logado: boolean = false;
-
+  user: any;
   rootPage: any = 'HomePage';
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public headerColor: HeaderColor, public screenOrientation: ScreenOrientation) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen, 
+    public headerColor: HeaderColor, 
+    public screenOrientation: ScreenOrientation,
+    public fire: FireProvider
+  ) {
     this.initializeApp();
-
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: 'HomePage' },
@@ -43,10 +50,19 @@ export class MyApp {
   }
 
   login(){
-    this.logado = !this.logado;
+    this.fire.signInWithFacebook();
   }
+
   openLocalizacao(){
     this.nav.push('LocalizacaoPage');
+  }
+
+  openFotos(){
+    this.nav.push('FotosPage');
+  }
+
+  logout(){
+    this.fire.signOut();
   }
   openPage(page) {
     // Reset the content nav to have just this page

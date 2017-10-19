@@ -1,6 +1,7 @@
+import { FireProvider } from './../../providers/fire/fire';
 import { UtilProvider } from './../../providers/util/util';
 import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController, LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -12,6 +13,8 @@ export class ModalItemDetailPage {
   rate: any = 0;
   estrelas: any[];
   avaliou: boolean = false;
+  user: any;
+  authState: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -19,11 +22,18 @@ export class ModalItemDetailPage {
     public modalCtrl: ModalController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController,
     public zone: NgZone,
+    public fire: FireProvider,
     public util: UtilProvider
     ) {
     this.sanduiche = this.navParams.get('sanduiche');
+    //this.user = this.fire.user;
     console.log(this.sanduiche)
+    this.authState = fire.authState.subscribe(user => {
+      this.user = user;
+    })
+
   }
 
   ionViewDidLoad() {
@@ -60,6 +70,7 @@ export class ModalItemDetailPage {
     });
     toast.present();
   }
+
   avaliar(){
     console.log('avaliar');
     let modalOptions: ModalOptions;
@@ -105,5 +116,21 @@ export class ModalItemDetailPage {
     alert.onDidDismiss(data => {
       console.log(data.comentario)
     })
+  }
+
+  login(){
+    let loading = this.loadingCtrl.create({
+      content: "Carregando..."
+    })
+    loading.present();
+    this.fire.signInWithFacebook()
+      .then(result => {
+        loading.dismiss();
+        console.log('resultado: ', result)
+      })
+      .catch(err => {
+        console.log(err);
+        loading.dismiss();
+      })
   }
 }

@@ -8,12 +8,29 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SuperTabsController,SuperTabsModule } from 'ionic2-super-tabs';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HeaderColor } from '@ionic-native/header-color';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Facebook } from '@ionic-native/facebook';
+
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UtilProvider } from '../providers/util/util';
+import { FireProvider } from '../providers/fire/fire';
+
+
+const config = {
+        apiKey: "AIzaSyBicF0oeyGcCQ5sr8QvNsjg6qphf0Dmjio",
+        authDomain: "hero-burguer.firebaseapp.com",
+        databaseURL: "https://hero-burguer.firebaseio.com",
+        projectId: "hero-burguer",
+        storageBucket: "hero-burguer.appspot.com",
+        messagingSenderId: "988738797804"
+      };
 
 @NgModule({
   declarations: [
@@ -24,6 +41,9 @@ import { UtilProvider } from '../providers/util/util';
     BrowserModule,
     SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
     
   ],
   bootstrap: [IonicApp],
@@ -40,7 +60,9 @@ import { UtilProvider } from '../providers/util/util';
     GoogleMaps,
     HeaderColor,
     ScreenOrientation,
-    CallNumber
+    CallNumber,
+    FireProvider,
+    Facebook
   ]
 })
 export class AppModule {}
