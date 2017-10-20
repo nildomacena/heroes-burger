@@ -82,18 +82,18 @@
     <allow-navigation href="http://192.168.1.202:8100" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
-    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="1289209431183232" />
+        <variable name="APP_NAME" value="Hero Burguer" />
+    </plugin>
     <plugin name="cordova-plugin-googlemaps" spec="^2.0.11">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAuN-wZmQTJqVRfV5sDlW1ASUCRR4KFdjw" />
     </plugin>
     <plugin name="cordova-plugin-headercolor" spec="^1.0.0" />
     <plugin name="cordova-plugin-screen-orientation" spec="git+https://github.com/Exilz/cordova-plugin-screen-orientation.git" />
-    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
-        <variable name="APP_ID" value="1289209431183232" />
-        <variable name="APP_NAME" value="Hero Burguer" />
-    </plugin>
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
 </widget>

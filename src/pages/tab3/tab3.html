@@ -11,9 +11,9 @@
   <ion-item-group *ngFor="let subItem of itensDiversos.subItens" >
     <ion-item-divider color="light">{{subItem.titulo}}</ion-item-divider>
     <ion-item *ngFor="let item of subItem.itens" >
-      <ion-avatar item-start>
+      <ion-thumbnail item-start>
         <img [src]="item.imagem">
-      </ion-avatar>
+      </ion-thumbnail>
       <h2>{{item.titulo}}</h2>
       <p>{{item.descricao}}</p>
       <p>{{item.preco | currency:'BRL':true}}</p>
