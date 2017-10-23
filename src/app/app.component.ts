@@ -1,3 +1,4 @@
+import { Sim } from '@ionic-native/sim';
 import { FireProvider } from './../providers/fire/fire';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HeaderColor } from '@ionic-native/header-color';
@@ -26,6 +27,7 @@ export class MyApp {
     public splashScreen: SplashScreen, 
     public headerColor: HeaderColor, 
     public screenOrientation: ScreenOrientation,
+    public sim: Sim,
     public fire: FireProvider
   ) {
     this.initializeApp();
@@ -44,6 +46,10 @@ export class MyApp {
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);      
         this.headerColor.tint('#e65100');      
       }
+      this.sim.getSimInfo()
+        .then(info => { 
+          console.log(info);
+        })
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

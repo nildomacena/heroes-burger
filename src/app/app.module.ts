@@ -17,6 +17,7 @@ import { HeaderColor } from '@ionic-native/header-color';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Facebook } from '@ionic-native/facebook';
+import { Sim } from '@ionic-native/sim';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UtilProvider } from '../providers/util/util';
@@ -62,7 +63,8 @@ const config = {
     ScreenOrientation,
     CallNumber,
     FireProvider,
-    Facebook
+    Facebook,
+    Sim
   ]
 })
 export class AppModule {}

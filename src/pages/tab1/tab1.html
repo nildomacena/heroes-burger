@@ -7,6 +7,14 @@
 </ion-header>
 
 
-<ion-content padding>
-Tab 1
+<ion-content no-padding>
+  <ion-list>
+    <ion-item *ngFor="let combo of combos" >
+      <ion-thumbnail item-start>
+        <img [src]="combo.imagem">
+      </ion-thumbnail>
+      <h2>{{combo.nome}} - {{combo.preco | currency:'BRL':true}}</h2>
+      <p text-wrap>{{combo.descricao}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
