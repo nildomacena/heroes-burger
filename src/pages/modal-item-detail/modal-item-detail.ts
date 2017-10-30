@@ -15,6 +15,8 @@ export class ModalItemDetailPage {
   avaliou: boolean = false;
   user: any;
   authState: any;
+  comentarios:  any[];
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -32,7 +34,13 @@ export class ModalItemDetailPage {
     console.log(this.sanduiche)
     this.authState = fire.authState.subscribe(user => {
       this.user = user;
-    })
+    });
+
+    this.comentarios = [
+      {usuario: 'Mickey', texto: 'Ótimo sanduíche. Bem saboroso! Vou pedir novamente da próxima vez!', avatar: 'assets/img/avatar2.png'},
+      {usuario: 'Minnie', texto: 'Muito gostoso! Vou pedir de novo!', avatar: 'assets/img/avatar3.jpeg'},
+      {usuario: 'Donald', texto: 'Bem legal! Gostei!', avatar: 'assets/img/avatar4.png'},
+    ]
 
   }
 
@@ -41,6 +49,11 @@ export class ModalItemDetailPage {
     this.zone.run(() => {
       this.estrelas = [false,false,false,false,false]
     })
+  }
+
+  abrirComentario(comentario: any){
+    let modal = this.modalCtrl.create('ComentarioPage',comentario,{cssClass: 'modal-comentario', showBackdrop:true, enableBackdropDismiss: true});
+    modal.present();
   }
 
   dismiss(){

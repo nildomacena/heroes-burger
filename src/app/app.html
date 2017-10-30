@@ -27,13 +27,13 @@
     </div>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <ion-icon name="paper"></ion-icon> {{p.title}}
       </button>
       <button menuClose ion-item (click)="openLocalizacao()">
-        Nos Encontre
+        <ion-icon name="map"></ion-icon> Nos Encontre
       </button>
       <button menuClose ion-item (click)="openFotos()">
-        Fotos da Galera
+        <ion-icon name="images"></ion-icon> Fotos da Galera
       </button>
     </ion-list>
   </ion-content>
