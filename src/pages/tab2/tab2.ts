@@ -1,6 +1,6 @@
 import { UtilProvider } from './../../providers/util/util';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Platform, App } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -16,7 +16,8 @@ export class Tab2Page {
     public navParams: NavParams, 
     public modalCtrl: ModalController, 
     public platfom: Platform,
-    public util: UtilProvider
+    public util: UtilProvider,
+    public app: App
   ) {
     console.log(this.platfom.is('cordova'));
     this.sanduiches = [
@@ -46,8 +47,9 @@ export class Tab2Page {
 
   goToSanduiche(sanduiche){
     console.log(sanduiche)
-    let modal = this.modalCtrl.create('ModalItemDetailPage',{sanduiche: sanduiche});
-    modal.present();
+   this.app.getRootNav().push('ModalItemDetailPage', {sanduiche: sanduiche, modal: false})
+    /* let modal = this.modalCtrl.create('ModalItemDetailPage',{sanduiche: sanduiche});
+    modal.present(); */
   }
     
 }

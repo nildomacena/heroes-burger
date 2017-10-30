@@ -1,7 +1,7 @@
 import { FireProvider } from './../../providers/fire/fire';
 import { UtilProvider } from './../../providers/util/util';
 import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController, LoadingController, Item } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,12 +10,14 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, M
 })
 export class ModalItemDetailPage {
   sanduiche: any; 
+  modal: false;
   rate: any = 0;
   estrelas: any[];
   avaliou: boolean = false;
   user: any;
   authState: any;
   comentarios:  any[];
+  qtdeCarrinho = 3;
 
   constructor(
     public navCtrl: NavController, 
@@ -30,6 +32,7 @@ export class ModalItemDetailPage {
     public util: UtilProvider
     ) {
     this.sanduiche = this.navParams.get('sanduiche');
+    this.modal = this.navParams.get('modal');
     //this.user = this.fire.user;
     console.log(this.sanduiche)
     this.authState = fire.authState.subscribe(user => {
@@ -51,9 +54,40 @@ export class ModalItemDetailPage {
     })
   }
 
-  abrirComentario(comentario: any){
-    let modal = this.modalCtrl.create('ComentarioPage',comentario,{cssClass: 'modal-comentario', showBackdrop:true, enableBackdropDismiss: true});
-    modal.present();
+  abrirComentario(ionItem: Item, comentario: any){
+    console.log(ionItem);
+    ionItem.setElementClass('comentario-selecionado', true);
+    /*let modal = this.modalCtrl.create('ComentarioPage',comentario,{cssClass: 'modal-comentario'});
+    modal.present();*/
+  }
+
+  adicionarAoCarrinho(){
+    console.log(this.sanduiche);
+    let alert = this.alertCtrl.create({
+      title: `Deseja adicionar ${this.sanduiche.titulo}`,
+      message: 'Selecione a quantidade',
+      inputs:[{
+        name: 'quantidade',
+        type: 'number'
+      }],
+      buttons: [
+        {
+        text: 'Cancel', role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+        }, {
+          text: 'Ok',
+          handler: () => {
+          console.log('Ok clicked');
+        }
+        }
+      ]
+    });
+    alert.present();
+    alert.onDidDismiss(data => {
+      console.log(data);
+    })
   }
 
   dismiss(){

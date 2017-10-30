@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <ion-title>{{sanduiche.titulo}}</ion-title>
-    <ion-buttons start>
+    <ion-buttons start *ngIf="modal" >
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
         <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
@@ -127,36 +127,25 @@
   <br><hr>
   <h5 text-center>Comentários</h5>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let comentario of comentarios" #ionItem (click)="abrirComentario(ionItem,comentario)" >
       <ion-avatar item-start>
-        <img src="assets/img/avatar2.png">
+        <img [src]="comentario.avatar">
       </ion-avatar>
-      <h2>Mickey</h2>
-      <p>Ótimo sanduíche. Bem saboroso! Vou pedir novamente da próxima vez!</p>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar3.jpeg">
-      </ion-avatar>
-      <h2>Minnie</h2>
-      <p>Muito gostoso! Vou pedir de novo!</p>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar4.png">
-      </ion-avatar>
-      <h2>Donald</h2>
-      <p>Bem legal! Gostei!</p>
+      <h2>{{comentario.usuario}}</h2>
+      <p>{{comentario.texto}}</p>
     </ion-item>
   </ion-list>
+  <ion-fab bottom right >
+    <button ion-fab (click)="ligar()" ><ion-icon name="cart"><ion-badge id="notifications-badge" color="danger">{{qtdeCarrinho}}</ion-badge></ion-icon></button>
+  </ion-fab>
 </ion-content>
 
 <ion-footer>
   
     <ion-grid no-margin no-padding>
       <ion-row>
-        <ion-col><button id="botao-esquerdo" (click)="comentar()" clear no-margin ion-button icon-start full><ion-icon name="chatbubbles"></ion-icon>Comentar</button></ion-col>
-        <ion-col><button id="botao-direito" (click)="ligar()" clear no-margin ion-button icon-start full><ion-icon name="call"></ion-icon>Liga pra gente</button></ion-col>
+        <ion-col><button id="botao-direito" (click)="adicionarAoCarrinho()" clear no-margin ion-button icon-start full><ion-icon name="cart"></ion-icon>Comprar</button></ion-col>
+        <ion-col><button id="botao-esquerdo" (click)="comentar()" clear no-margin ion-button icon-start full><ion-icon name="call"></ion-icon>Ligar pra nós</button></ion-col>
       </ion-row>
     </ion-grid>
   

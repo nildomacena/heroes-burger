@@ -13,8 +13,14 @@ import * as firebase from 'firebase/app';
 export class FireProvider {
   public user: any;
   public authState = this.afAuth.authState;
+  carrinho: any;
+
   constructor(private afAuth: AngularFireAuth, public platform: Platform, public fb: Facebook) {
-    console.log('Hello FireProvider Provider');
+    this.carrinho = {
+      valor_total: 0,
+      quantidadeItens: 0,
+      menuItens: []
+    }
     afAuth.authState.subscribe(user => {
       if (!user) {
         this.user = null;        
@@ -36,6 +42,14 @@ export class FireProvider {
       return this.afAuth.auth
         .signInWithPopup(new firebase.auth.FacebookAuthProvider())
         .then(res => console.log(res));
+    }
+  }
+  adicionarAocarrinho(item: any){
+    let achou: boolean = false;
+    if(this.carrinho.quantidadeItens == 0){
+      this.carrinho.menuItens.push(item);
+      this.carrinho.quantidadeItens += 1;
+      this.carrinho.valor_total = item.preco;
     }
   }
 
