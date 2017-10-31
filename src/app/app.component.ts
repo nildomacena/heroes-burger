@@ -63,6 +63,9 @@ export class MyApp {
     this.nav.push('LocalizacaoPage');
   }
 
+  openCarrinho(){
+    this.nav.push('CarrinhoPage');
+  }
   openFotos(){
     this.nav.push('FotosPage');
   }

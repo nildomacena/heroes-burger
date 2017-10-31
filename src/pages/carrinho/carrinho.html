@@ -1,18 +1,26 @@
-<!--
-  Generated template for the CarrinhoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>carrinho</ion-title>
+    <ion-title>Carrinho</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div class="vazio" *ngIf="carrinho.itens.length == 0">
+    <h4>Você ainda não adicionou itens ao carrinho. Não perca tempo, faça já seu pedido.</h4>
+    <button ion-button primary style="width: 100%" (click)="goBack()" >
+        Visualizar ofertas
+    </button>
+  </div>
+  <ion-list *ngIf="carrinho">
+    <ion-item *ngFor="let item of carrinho.itens" >
+      <ion-thumbnail item-left>
+        <img [src]="item.menuItem.linkImagem" *ngIf="item.menuItem.linkImagem"  class="imagem-lanche">
+        <ion-img *ngIf="!item.menuItem.linkImagem" src="assets/img/no-photo.jpg" class="imagem-lanche"></ion-img>
+      </ion-thumbnail>
+      <h2>{{item.menuItem.titulo}}</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

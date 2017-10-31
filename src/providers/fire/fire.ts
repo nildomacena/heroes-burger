@@ -13,13 +13,13 @@ import * as firebase from 'firebase/app';
 export class FireProvider {
   public user: any;
   public authState = this.afAuth.authState;
-  carrinho: any;
+  public carrinho: any;
 
   constructor(private afAuth: AngularFireAuth, public platform: Platform, public fb: Facebook) {
     this.carrinho = {
       valor_total: 0,
       quantidadeItens: 0,
-      menuItens: []
+      itens: []
     }
     afAuth.authState.subscribe(user => {
       if (!user) {
@@ -44,15 +44,40 @@ export class FireProvider {
         .then(res => console.log(res));
     }
   }
-  adicionarAocarrinho(item: any){
+  adicionarAocarrinho(item: any, observacao: string){
     let achou: boolean = false;
     if(this.carrinho.quantidadeItens == 0){
-      this.carrinho.menuItens.push(item);
+      this.carrinho.itens.push({menuItem: item, quantidade: 1, valor_item: item.preco});
       this.carrinho.quantidadeItens += 1;
-      this.carrinho.valor_total = item.preco;
+      this.atualizaValorTotal()
+      return;
+    }
+    else{
+      this.carrinho.itens.map((itemCarrinho, index) => {
+        itemCarrinho.menuItem.titulo == item.titulo;
+        itemCarrinho.quantidade++;
+        itemCarrinho.valor_item += item.preco;
+        achou = true;
+        this.atualizaValorTotal()
+        console.log(this.carrinho, 'achou!!')
+        return;
+      })
+    }
+
+    if(!achou){
+      this.carrinho.itens.push({menuItem: item, quantidade: 1, valor_item: item.preco});
+      this.carrinho.quantidadeItens += 1;
     }
   }
 
+  atualizaValorTotal(){
+    this.carrinho.itens.map(carrinhoItem => {
+      this.carrinho.valor_total += carrinhoItem.valor_item;
+    })
+  }
+  getCarrinho(){
+    return this.carrinho;
+  }
   signOut() {
     this.afAuth.auth.signOut();
   }

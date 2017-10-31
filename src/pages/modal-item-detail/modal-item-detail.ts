@@ -1,7 +1,7 @@
 import { FireProvider } from './../../providers/fire/fire';
 import { UtilProvider } from './../../providers/util/util';
 import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController, LoadingController, Item } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController, LoadingController, Item, App } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -20,6 +20,7 @@ export class ModalItemDetailPage {
   qtdeCarrinho = 3;
 
   constructor(
+    public app: App,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController, 
@@ -32,6 +33,8 @@ export class ModalItemDetailPage {
     public util: UtilProvider
     ) {
     this.sanduiche = this.navParams.get('sanduiche');
+    if (!this.sanduiche)
+      this.navCtrl.setRoot('HomePage')
     this.modal = this.navParams.get('modal');
     //this.user = this.fire.user;
     console.log(this.sanduiche)
@@ -64,11 +67,12 @@ export class ModalItemDetailPage {
   adicionarAoCarrinho(){
     console.log(this.sanduiche);
     let alert = this.alertCtrl.create({
-      title: `Deseja adicionar ${this.sanduiche.titulo}`,
-      message: 'Selecione a quantidade',
+      title: `Adicionando ${this.sanduiche.titulo} ao carrinho`,
+      message: 'Alguma observação?',
       inputs:[{
-        name: 'quantidade',
-        type: 'number'
+        name: 'observacao',
+        type: 'text',
+        placeholder: 'Ex.: Sem presunto com mais queijo'
       }],
       buttons: [
         {
@@ -86,8 +90,14 @@ export class ModalItemDetailPage {
     });
     alert.present();
     alert.onDidDismiss(data => {
+      this.sanduiche
+      this.fire.adicionarAocarrinho(this.sanduiche, data.observacao)
       console.log(data);
     })
+  }
+
+  irParaCarrinho(){
+    this.navCtrl.push('CarrinhoPage');
   }
 
   dismiss(){

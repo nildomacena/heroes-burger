@@ -37,7 +37,7 @@ export class Tab2Page {
       if(this.platfom.is('cordova'))
         sanduiche['linkImagem'] = 'assets/img/sanduiches/'+sanduiche.imagem;
       else
-        sanduiche['linkImagem'] = '../../assets/img/sanduiches/'+sanduiche.imagem;
+        sanduiche['linkImagem'] = 'assets/img/sanduiches/'+sanduiche.imagem;
     })
   }
 
