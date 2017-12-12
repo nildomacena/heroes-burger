@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, M
   templateUrl: 'modal-item-detail.html',
 })
 export class ModalItemDetailPage {
-  sanduiche: any; 
+  item: any; 
   modal: false;
   rate: any = 0;
   estrelas: any[];
@@ -32,12 +32,12 @@ export class ModalItemDetailPage {
     public fire: FireProvider,
     public util: UtilProvider
     ) {
-    this.sanduiche = this.navParams.get('sanduiche');
-    if (!this.sanduiche)
+    this.item = this.navParams.get('item');
+    if (!this.item)
       this.navCtrl.setRoot('HomePage')
     this.modal = this.navParams.get('modal');
     //this.user = this.fire.user;
-    console.log(this.sanduiche)
+    console.log(this.item)
     this.authState = fire.authState.subscribe(user => {
       this.user = user;
     });
@@ -51,6 +51,7 @@ export class ModalItemDetailPage {
   }
 
   ionViewDidLoad() {
+    this.adicionarAoCarrinho()
     console.log('ionViewDidLoad ModalItemDetailPage');
     this.zone.run(() => {
       this.estrelas = [false,false,false,false,false]
@@ -65,9 +66,9 @@ export class ModalItemDetailPage {
   }
 
   adicionarAoCarrinho(){
-    console.log(this.sanduiche);
+    console.log(this.item);
     let alert = this.alertCtrl.create({
-      title: `Adicionando ${this.sanduiche.titulo} ao carrinho`,
+      title: `Adicionando ${this.item.titulo} ao carrinho`,
       message: 'Alguma observação?',
       inputs:[{
         name: 'observacao',
@@ -90,8 +91,8 @@ export class ModalItemDetailPage {
     });
     alert.present();
     alert.onDidDismiss(data => {
-      this.sanduiche
-      this.fire.adicionarAocarrinho(this.sanduiche, data.observacao)
+      this.item
+      this.fire.adicionarAocarrinho(this.item, data.observacao)
       console.log(data);
     })
   }

@@ -9,11 +9,11 @@
 
 <ion-content no-padding>
   <ion-list>
-    <ion-item *ngFor="let combo of combos" >
+    <ion-item *ngFor="let combo of combos" (click)="goToCombo(combo)" >
       <ion-thumbnail item-start>
-        <img [src]="combo.imagem">
+        <img [src]="combo.linkImagem">
       </ion-thumbnail>
-      <h2>{{combo.nome}} - {{combo.preco | currency:'BRL':true}}</h2>
+      <h2>{{combo.titulo}} - {{combo.preco | currency:'BRL':true}}</h2>
       <p text-wrap>{{combo.descricao}}</p>
     </ion-item>
   </ion-list>

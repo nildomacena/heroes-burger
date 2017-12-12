@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{sanduiche?.titulo}}</ion-title>
+    <ion-title>{{item?.titulo}}</ion-title>
     <ion-buttons start *ngIf="modal" >
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
@@ -15,20 +15,20 @@
 
 <ion-content>
   <div class="slide-container">
-    <ion-slides *ngIf="sanduiche" pager="true" loop="true" autoplay="3500" >
+    <ion-slides *ngIf="item" pager="true" loop="true" autoplay="3500" >
       <ion-slide>
-        <img [src]="sanduiche.linkImagem">
+        <img [src]="item.linkImagem">
       </ion-slide>
       <ion-slide>
           <img src="assets/img/sanduiches/sanduiche-generico.png"/>
       </ion-slide>
     </ion-slides>
   </div>
-  <h2 text-center class="preco" >{{sanduiche?.preco | currency:'BRL':true}}</h2>
+  <h2 text-center class="preco" >{{item?.preco | currency:'BRL':true}}</h2>
   <hr>
   <div margin-left>
     <h5 no-padding no-margin style="color: #e65100" >Descrição</h5>
-    <p class="ingredientes">{{sanduiche?.ingredientes}}</p>
+    <p class="ingredientes">{{item?.descricao}}</p>
   </div>
   <hr>
   <!--

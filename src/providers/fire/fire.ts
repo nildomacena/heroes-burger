@@ -44,37 +44,47 @@ export class FireProvider {
         .then(res => console.log(res));
     }
   }
+
+
   adicionarAocarrinho(item: any, observacao: string){
     let achou: boolean = false;
-    if(this.carrinho.quantidadeItens == 0){
+    if(this.carrinho.itens.length == 0){
       this.carrinho.itens.push({menuItem: item, quantidade: 1, valor_item: item.preco});
       this.carrinho.quantidadeItens += 1;
       this.atualizaValorTotal()
+      achou = true;
       return;
     }
+
     else{
       this.carrinho.itens.map((itemCarrinho, index) => {
-        itemCarrinho.menuItem.titulo == item.titulo;
-        itemCarrinho.quantidade++;
-        itemCarrinho.valor_item += item.preco;
-        achou = true;
-        this.atualizaValorTotal()
-        console.log(this.carrinho, 'achou!!')
-        return;
+        if(itemCarrinho.menuItem.titulo == item.titulo){
+          itemCarrinho.quantidade++;
+          itemCarrinho.valor_item += item.preco;
+          achou = true;
+          this.atualizaValorTotal();
+          console.log(this.carrinho, 'achou!!')
+          return;
+        }
       })
     }
-
+    console.log(achou);
     if(!achou){
       this.carrinho.itens.push({menuItem: item, quantidade: 1, valor_item: item.preco});
       this.carrinho.quantidadeItens += 1;
+      this.atualizaValorTotal();
     }
   }
 
   atualizaValorTotal(){
+    this.carrinho.valor_total = 0;
     this.carrinho.itens.map(carrinhoItem => {
       this.carrinho.valor_total += carrinhoItem.valor_item;
+      console.log(carrinhoItem);
+      console.log(this.carrinho.valor_total);
     })
   }
+
   getCarrinho(){
     return this.carrinho;
   }
