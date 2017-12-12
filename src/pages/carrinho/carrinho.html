@@ -17,11 +17,12 @@
   <ion-list *ngIf="carrinho">
     <ion-item *ngFor="let item of carrinho.itens" >
       <ion-thumbnail item-left>
-        <img [src]="item.menuItem.linkImagem" *ngIf="item.menuItem.linkImagem"  class="imagem-lanche">
+        <img [src]="item.menuItem.thumbnail" *ngIf="item.menuItem.thumbnail"  class="imagem-lanche">
         <ion-img *ngIf="!item.menuItem.linkImagem" src="assets/img/no-photo.jpg" class="imagem-lanche"></ion-img>
       </ion-thumbnail>
       <h2>{{item.menuItem.titulo}}</h2>
-      <p>{{item?.menuItem.preco | currency:'BRL':true}}</p>
+      <p>Preço unitário: {{item?.menuItem.preco | currency:'BRL':true}}</p>
+      <p>Quantidade: {{item?.quantidade}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

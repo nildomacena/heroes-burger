@@ -80,8 +80,8 @@ export class FireProvider {
     this.carrinho.valor_total = 0;
     this.carrinho.itens.map(carrinhoItem => {
       this.carrinho.valor_total += carrinhoItem.valor_item;
-      console.log(carrinhoItem);
-      console.log(this.carrinho.valor_total);
+      console.log('carrinhoItem',carrinhoItem);
+      console.log('valor_total: ', this.carrinho.valor_total);
     })
   }
 

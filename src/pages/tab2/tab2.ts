@@ -21,17 +21,17 @@ export class Tab2Page {
   ) {
     console.log(this.platfom.is('cordova'));
     this.sanduiches = [
-      {titulo: "Flash", preco: 9, descricao: "Hambúrguer, queijo, presunto, ovo e alface", imagem: "flash.jpg", thumbnail: 'assets/img/sanduiches/flash-thumbnail.png'},
-      {titulo: "Deadpool", preco: 9.5, descricao: "Hambúrguer, bacon, queijo, presunto e salada", imagem: "deadpool.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Supegirl", preco: 9.5, descricao: "Cheddar, frango, queijo, presunto, bacon e salada", imagem: "supergirl.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Capitão América", preco: 8, descricao: "Queijo, presunto, ovo e salada", imagem: "capitao-america.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Viúva Negra", preco: 12.5, descricao: "Filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "viuva-negra.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Mulher Maravilha", preco: 12.5, descricao: "Filé de alcatra, Presunto, queijo, bacon, ovo e salada", imagem: "mulher-maravilha.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Super Homem", preco: 12.5, descricao: "Filé de alcatra, filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "superman.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Hulk", preco: 15, descricao: "Filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "hulk.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Homem Formiga", preco: 8.5, descricao: "Hambúrguer, queijo e salada", imagem: "homem-formiga.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Lanterna Verde", preco: 10, descricao: "Frango desfiado, queijo coalho, milho verde, cenoura e presunto", imagem: "lanterna-verde.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'},
-      {titulo: "Homem Aranha", preco: 10, descricao: "Calabresa, queijo, presunto, ovo e salada", imagem: "avatar.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.png'}
+      {titulo: "Flash", preco: 9, descricao: "Hambúrguer, queijo, presunto, ovo e alface", imagem: "flash.jpg", thumbnail: 'assets/img/sanduiches/flash-thumbnail.jpg'},
+      {titulo: "Deadpool", preco: 9.5, descricao: "Hambúrguer, bacon, queijo, presunto e salada", imagem: "deadpool.jpg", thumbnail: 'assets/img/sanduiches/deadpool-thumbnail.jpg'},
+      {titulo: "Supegirl", preco: 9.5, descricao: "Cheddar, frango, queijo, presunto, bacon e salada", imagem: "supergirl.jpg", thumbnail: 'assets/img/sanduiches/supergirl-thumbnail.jpg'},
+      {titulo: "Capitão América", preco: 8, descricao: "Queijo, presunto, ovo e salada", imagem: "capitao-america.jpg", thumbnail: 'assets/img/sanduiches/capitao-americva-thumbnail.jpg'},
+      {titulo: "Viúva Negra", preco: 12.5, descricao: "Filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "viuva-negra.jpg", thumbnail: 'assets/img/sanduiches/viuva-negra-thumbnail.jpg'},
+      {titulo: "Mulher Maravilha", preco: 12.5, descricao: "Filé de alcatra, Presunto, queijo, bacon, ovo e salada", imagem: "mulher-maravilha.jpg", thumbnail: 'assets/img/sanduiches/mulher-maravilha-thumbnail.jpg'},
+      {titulo: "Super Homem", preco: 12.5, descricao: "Filé de alcatra, filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "superman.jpg", thumbnail: 'assets/img/sanduiches/superman-thumbnail.jpg'},
+      {titulo: "Hulk", preco: 15, descricao: "Filé de frango, Presunto, queijo, bacon, ovo e salada", imagem: "hulk.jpg", thumbnail: 'assets/img/sanduiches/hulk-thumbnail.jpg'},
+      {titulo: "Homem Formiga", preco: 8.5, descricao: "Hambúrguer, queijo e salada", imagem: "homem-formiga.jpg", thumbnail: 'assets/img/sanduiches/homem-formiga-thumbnail.jpg'},
+      {titulo: "Lanterna Verde", preco: 10, descricao: "Frango desfiado, queijo coalho, milho verde, cenoura e presunto", imagem: "lanterna-verde.jpg", thumbnail: 'assets/img/sanduiches/lanterna-verde-thumbnail.jpg'},
+      {titulo: "Homem Aranha", preco: 10, descricao: "Calabresa, queijo, presunto, ovo e salada", imagem: "spiderman.jpg", thumbnail: 'assets/img/sanduiches/spiderman-thumbnail.jpg'}
     ]
     this.sanduiches.map(sanduiche => {
       if(this.platfom.is('cordova'))
