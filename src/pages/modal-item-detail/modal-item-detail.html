@@ -135,7 +135,7 @@
       <p>{{comentario.texto}}</p>
     </ion-item>
   </ion-list>
-  <ion-fab bottom right >
+  <ion-fab bottom right *ngIf="qtdeCarrinho > 0" >
     <button ion-fab (click)="irParaCarrinho()" ><ion-icon name="cart"><ion-badge id="notifications-badge" color="danger">{{qtdeCarrinho}}</ion-badge></ion-icon></button>
   </ion-fab>
 </ion-content>

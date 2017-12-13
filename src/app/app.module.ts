@@ -2,6 +2,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -22,6 +23,7 @@ import { Sim } from '@ionic-native/sim';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UtilProvider } from '../providers/util/util';
 import { FireProvider } from '../providers/fire/fire';
+import { HttpModule, Http } from '@angular/http';
 
 
 const config = {
@@ -44,7 +46,10 @@ const config = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    HttpModule
+    
     
   ],
   bootstrap: [IonicApp],

@@ -2,6 +2,7 @@ import { FireProvider } from './../../providers/fire/fire';
 import { UtilProvider } from './../../providers/util/util';
 import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, ModalOptions, Icon, AlertController, ToastController, LoadingController, Item, App } from 'ionic-angular';
+import { Events } from 'ionic-angular/util/events';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,7 @@ export class ModalItemDetailPage {
   user: any;
   authState: any;
   comentarios:  any[];
-  qtdeCarrinho = 3;
+  qtdeCarrinho = this.fire.carrinho.quantidadeItens;
 
   constructor(
     public app: App,
@@ -30,8 +31,14 @@ export class ModalItemDetailPage {
     public loadingCtrl: LoadingController,
     public zone: NgZone,
     public fire: FireProvider,
-    public util: UtilProvider
+    public util: UtilProvider,
+    public events: Events
     ) {
+    this.events.subscribe('carrinho:atualizado',() => {
+      this.qtdeCarrinho = this.fire.carrinho.quantidadeItens;
+      console.log('qtde carrinho: ', this.qtdeCarrinho);
+    })
+
     this.item = this.navParams.get('item');
     if (!this.item)
       this.navCtrl.setRoot('HomePage')

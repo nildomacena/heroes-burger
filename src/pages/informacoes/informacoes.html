@@ -13,10 +13,10 @@
     <ion-grid>
       <ion-row>
         <ion-col col-3>
-          <img [src]="user.photoURL">
+          <img [src]="user?.photoURL">
         </ion-col>
         <ion-col id="col-name" col-9 padding-vertical>
-          <h3>{{user.displayName}}</h3>
+          <h3>{{user?.displayName}}</h3>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -40,7 +40,7 @@
       <ion-row>
         <ion-col></ion-col>
         <ion-col>
-          <button ion-button block outline >Adicionar endereço</button>
+          <button ion-button block outline (click)="addEndereco()" >Adicionar endereço</button>
         </ion-col>
         <ion-col></ion-col>
       </ion-row>

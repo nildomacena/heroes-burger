@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { AlertController } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class UtilProvider {
-
-  constructor(public alertCtrl: AlertController, public call: CallNumber) {
+  public cep: string = '';
+  constructor(public alertCtrl: AlertController, public call: CallNumber, public http:Http) {
     console.log('Hello UtilProvider Provider');
   }
 
@@ -29,5 +32,9 @@ export class UtilProvider {
       ]
     });
     alert.present();
+  }
+
+  buscarPeloCEP(cep: string): Observable<any>{
+    return this.http.get(`http://viacep.com.br/ws/${cep}/json/ `);
   }
 }

@@ -31,10 +31,11 @@
     "@ionic-native/status-bar": "3.12.1",
     "@ionic/storage": "2.0.1",
     "angularfire2": "^5.0.0-rc.3",
+    "brmasker-ionic-3": "^1.0.3",
     "call-number": "^1.0.1",
     "cordova-android": "^6.2.3",
     "cordova-plugin-device": "^1.1.6",
-    "cordova-plugin-facebook4": "^1.9.1",
+    "cordova-plugin-facebook4": "^1.7.4",
     "cordova-plugin-googlemaps": "^2.0.11",
     "cordova-plugin-headercolor": "^1.0.0",
     "cordova-plugin-screen-orientation": "git+https://github.com/Exilz/cordova-plugin-screen-orientation.git",
@@ -76,11 +77,11 @@
       },
       "cordova-plugin-headercolor": {},
       "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-sim": {},
       "cordova-plugin-facebook4": {
         "APP_ID": "1289209431183232",
-        "APP_NAME": "Hero Burguer"
-      },
-      "cordova-plugin-sim": {}
+        "APP_NAME": "Hero"
+      }
     },
     "platforms": [
       "android"

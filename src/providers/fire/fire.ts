@@ -1,4 +1,4 @@
-import { Platform } from 'ionic-angular';
+import { Platform , Events} from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -15,7 +15,7 @@ export class FireProvider {
   public authState = this.afAuth.authState;
   public carrinho: any;
 
-  constructor(private afAuth: AngularFireAuth, public platform: Platform, public fb: Facebook) {
+  constructor(private afAuth: AngularFireAuth, public platform: Platform, public fb: Facebook, public events: Events) {
     this.carrinho = {
       valor_total: 0,
       quantidadeItens: 0,
@@ -55,7 +55,7 @@ export class FireProvider {
       achou = true;
       return;
     }
-
+    
     else{
       this.carrinho.itens.map((itemCarrinho, index) => {
         if(itemCarrinho.menuItem.titulo == item.titulo){
@@ -74,15 +74,17 @@ export class FireProvider {
       this.carrinho.quantidadeItens += 1;
       this.atualizaValorTotal();
     }
+    
   }
-
+  
   atualizaValorTotal(){
     this.carrinho.valor_total = 0;
+    this.carrinho.quantidadeItens = 0;
     this.carrinho.itens.map(carrinhoItem => {
       this.carrinho.valor_total += carrinhoItem.valor_item;
-      console.log('carrinhoItem',carrinhoItem);
-      console.log('valor_total: ', this.carrinho.valor_total);
+      this.carrinho.quantidadeItens += carrinhoItem.quantidade;
     })
+    this.events.publish('carrinho:atualizado');
   }
 
   getCarrinho(){

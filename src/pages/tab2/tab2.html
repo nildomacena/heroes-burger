@@ -12,7 +12,7 @@
     <ion-card *ngFor="let sanduiche of sanduiches" (click)="goToSanduiche(sanduiche)" >
       <img [src]="sanduiche.linkImagem"/>
       <div class="card-title">{{sanduiche.titulo}}</div>
-      <div class="card-subtitle">{{sanduiche.preco | currency:'BRL':true}}<br>Hambúrguer, queijo, presunto, ovo e alface</div>
+      <div class="card-subtitle">{{sanduiche.preco | currency:'BRL':true}}<br>{{sanduiche.descricao}}</div>
     </ion-card>
   </div>
 </ion-content>

@@ -35,10 +35,10 @@
       <button menuClose ion-item (click)="openFotos()">
         <ion-icon name="images"></ion-icon> Fotos da Galera
       </button>
-      <button menuClose ion-item (click)="openCarrinho()">
+      <button menuClose ion-item (click)="openCarrinho()" *ngIf="fire.user">
         <ion-icon name="cart"></ion-icon> Carrinho
       </button>
-      <button menuClose ion-item (click)="openInfo()">
+      <button menuClose ion-item (click)="openInfo()" *ngIf="fire.user">
         <ion-icon name="contact"></ion-icon> Meus Dados
       </button>
     </ion-list>
