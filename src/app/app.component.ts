@@ -70,6 +70,10 @@ export class MyApp {
     this.nav.push('FotosPage');
   }
 
+  openInfo(){
+    this.nav.push('InformacoesPage');
+  }
+
   logout(){
     this.fire.signOut();
   }

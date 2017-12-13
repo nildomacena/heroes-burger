@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Meus Dados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <div class="info">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <img [src]="user.photoURL">
+        </ion-col>
+        <ion-col id="col-name" col-9 padding-vertical>
+          <h3>{{user.displayName}}</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h4 text-center>Endereços salvos</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <b>Casa da Santa Lúcia</b>
+            </ion-card-header>
+            <ion-card-content>
+              Logradouro: Travessa Belmiro Amorim, 56
+              Bairro: Santa Lúcia
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <button ion-button block outline >Adicionar endereço</button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
