@@ -1,8 +1,9 @@
 import { Http } from '@angular/http';
-import { UtilProvider } from './../../providers/util/util';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { UtilProvider, BAIRROS } from './../../providers/util/util';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController, TextInput } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @IonicPage()
 @Component({
@@ -10,15 +11,21 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: 'adiciona-endereco.html',
 })
 export class AdicionaEnderecoPage {
+  @ViewChild('inputDescricao') inputDescricao: TextInput;
   formCEP: FormGroup;
   endereco: any;
   achouEndereco:boolean = false;
-
+  bairros: string[] = BAIRROS;
+  bairroSelecionado: any;
+  numero: string = '';
+  descricao: string = '';
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alertCtrl:AlertController,
     public util: UtilProvider,
+    public viewCtrl: ViewController,
     public http: Http
   ) {
     this.formCEP = new FormGroup({
@@ -30,15 +37,23 @@ export class AdicionaEnderecoPage {
     console.log('ionViewDidLoad AdicionaEnderecoPage');
   }
 
+  dismiss(){
+    this.viewCtrl.dismiss();
+  }
+
   submitCEP(){
 
     
     this.util.buscarPeloCEP(this.formCEP.value.cep)
       .subscribe(endereco => {
 
-        console.log(endereco);
-
         this.endereco = endereco.json();
+
+        this.bairros.map(bairro => {
+          if(bairro == this.endereco.bairro)
+            this.bairroSelecionado = bairro;
+        })
+        console.log(endereco);
 
         if(endereco.json().erro){
           let alert = this.alertCtrl.create({
@@ -64,6 +79,7 @@ export class AdicionaEnderecoPage {
           this.achouEndereco = true;
         }
         console.log(this.endereco);
+        this.inputDescricao.setFocus();
       })
   }
   naoSabeCEP(){
@@ -89,4 +105,11 @@ export class AdicionaEnderecoPage {
     alert.present();
   }
 
+  selectBairro(bairro){
+    this.bairroSelecionado = bairro;
+  }
+
+  salvaEndereco(){
+    console.log(this.bairroSelecionado, this.endereco.logradouro, this.numero);
+  }
 }

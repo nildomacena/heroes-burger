@@ -37,19 +37,34 @@
   <h3 text-center></h3>
   <ion-list *ngIf="achouEndereco" >
     <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input #inputDescricao [(ngModel)]="descricao" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-label floating>Logradouro</ion-label>
       <ion-input [ngModel]="endereco.logradouro" type="text"></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label floating>Bairro</ion-label>
-      <ion-input [ngModel]="endereco.bairro" type="text"></ion-input>
+      <ion-label>Bairro</ion-label>
+      <ion-select [(ngModel)]="bairro">
+        <ion-option *ngFor="let bairro of bairros" [value]="bairro" [selected]="bairro == endereco.bairro" (ionSelect)="selectBairro(bairro)" >{{bairro}}</ion-option>
+      </ion-select>
     </ion-item>
+
+    <ion-item>
+      <ion-label floating>Número</ion-label>
+      <ion-input [(ngModel)]="numero" type="text"></ion-input>
+    </ion-item>
+    
     <ion-item>
         <ion-col col-2 ></ion-col>
         <ion-col col-8 text-center >
-          <button ion-button type="submit" block>Confirmar</button><br>
+          <button ion-button (click)="salvaEndereco()" [disabled]="!numero || !descricao || !endereco.logradouro || !bairroSelecionado" block>Confirmar</button><br>
         </ion-col>
         <ion-col col-2 >
+        </ion-col>
     </ion-item>
   </ion-list>
 </ion-content>
