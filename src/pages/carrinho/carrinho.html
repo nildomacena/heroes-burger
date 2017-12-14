@@ -34,7 +34,7 @@
         <ion-col col-8 align-self-center>
           <p class="valor_carrinho">Valor total: {{carrinho.valor_total | currency:'BRL':true}}</p>
         </ion-col>
-        <ion-col col-4 align-self-center><button id="botao-esquerdo" outline no-margin ion-button icon-start>Continuar</button></ion-col>
+        <ion-col col-4 align-self-center><button id="botao-esquerdo" (click)="goToFecharPedido()" outline no-margin ion-button icon-start>Continuar</button></ion-col>
       </ion-row>
     </ion-grid>
   

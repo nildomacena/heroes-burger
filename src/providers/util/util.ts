@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -9,7 +9,12 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class UtilProvider {
   public cep: string = '';
-  constructor(public alertCtrl: AlertController, public call: CallNumber, public http:Http) {
+  constructor(
+    public alertCtrl: AlertController, 
+    public call: CallNumber, 
+    public http:Http,
+    public toastCtrl:ToastController
+  ) {
     console.log('Hello UtilProvider Provider');
   }
 
@@ -36,6 +41,16 @@ export class UtilProvider {
 
   buscarPeloCEP(cep: string): Observable<any>{
     return this.http.get(`http://viacep.com.br/ws/${cep}/json/ `);
+  }
+
+  toast(mensagem){
+    let toast = this.toastCtrl.create({
+      message: mensagem,
+      duration: 3000,
+      closeButtonText: 'X',
+      showCloseButton: true
+    });
+    toast.present();
   }
 }
 

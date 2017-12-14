@@ -22,4 +22,8 @@ export class CarrinhoPage {
     this.navCtrl.pop();
   }
 
+  goToFecharPedido(){
+    this.navCtrl.push('FecharPedidoPage');
+  }
+
 }

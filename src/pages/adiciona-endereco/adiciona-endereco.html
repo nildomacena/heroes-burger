@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <form [formGroup]="formCEP" (ngSubmit)="submitCEP()" *ngIf="!achouEndereco" >
+  <form [formGroup]="formCEP" (ngSubmit)="submitCEP()" *ngIf="!achouEndereco && sabeCEP" >
     <ion-list>
       <ion-item>
         <ion-label floating>CEP</ion-label>
@@ -35,20 +35,20 @@
     </ion-grid>
   </form>
   <h3 text-center></h3>
-  <ion-list *ngIf="achouEndereco" >
+  <ion-list *ngIf="achouEndereco || !sabeCEP" >
     <ion-item>
       <ion-label floating>Descrição</ion-label>
-      <ion-input #inputDescricao [(ngModel)]="descricao" type="text"></ion-input>
+      <ion-input [(ngModel)]="descricao" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Logradouro</ion-label>
-      <ion-input [ngModel]="endereco.logradouro" type="text"></ion-input>
+      <ion-input [(ngModel)]="endereco.logradouro" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Bairro</ion-label>
-      <ion-select [(ngModel)]="bairro">
+      <ion-select cancelText="Cancelar" [(ngModel)]="bairro">
         <ion-option *ngFor="let bairro of bairros" [value]="bairro" [selected]="bairro == endereco.bairro" (ionSelect)="selectBairro(bairro)" >{{bairro}}</ion-option>
       </ion-select>
     </ion-item>
@@ -59,12 +59,17 @@
     </ion-item>
     
     <ion-item>
-        <ion-col col-2 ></ion-col>
-        <ion-col col-8 text-center >
-          <button ion-button (click)="salvaEndereco()" [disabled]="!numero || !descricao || !endereco.logradouro || !bairroSelecionado" block>Confirmar</button><br>
-        </ion-col>
-        <ion-col col-2 >
-        </ion-col>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2 ></ion-col>
+          <ion-col col-8 text-center >
+            <button ion-button (click)="salvaEndereco()" [disabled]="!numero || !descricao || !endereco.logradouro || !bairroSelecionado" block>Confirmar</button><br>
+            <a text-center (click)="reinserirCEP()" >Inserir CEP</a>
+          </ion-col>
+          <ion-col col-2 >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-item>
   </ion-list>
 </ion-content>
