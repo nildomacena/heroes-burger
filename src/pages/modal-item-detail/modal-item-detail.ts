@@ -47,6 +47,7 @@ export class ModalItemDetailPage {
     console.log(this.item)
     this.authState = fire.authState.subscribe(user => {
       this.user = user;
+      console.log(this.user)
     });
 
     this.comentarios = [

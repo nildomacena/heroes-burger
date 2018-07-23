@@ -80,7 +80,7 @@
         </ion-grid>
   </div>
   <div class="avaliar" *ngIf="user">
-    <img [src]="user.photoURL">
+    <img [src]="user.providerData[0].photoURL">
     <p text-center>Avalie esse lanche</p>
     
     <ion-grid> 
