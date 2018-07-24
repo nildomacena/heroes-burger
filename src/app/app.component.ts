@@ -42,17 +42,28 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      console.log(`É cordova? ${this.platform.is('cordova')}`);
+
       if(this.platform.is('cordova')){
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);      
         this.headerColor.tint('#e65100');      
-      }
-      this.sim.getSimInfo()
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+
+        this.sim.getSimInfo()
         .then(info => { 
           console.log(info);
         })
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+
+        this.fire.ouvirNotificacoes()
+          .subscribe(notificacao => {
+            console.log(notificacao);
+            alert(`Atenção! ${notificacao.mensagem}`);
+            this.nav.push('promocao')
+          })
+      }
+      });
+      
   }
 
   login(){

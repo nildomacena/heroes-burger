@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Promoção</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="slide-container">
+    <ion-slides *ngIf="item" pager="true" loop="true" autoplay="3500" >
+      <ion-slide>
+        <img [src]="item.thumbnail">
+      </ion-slide>
+      <ion-slide>
+          <img src="assets/img/sanduiches/sanduiche-generico.png"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

@@ -19,8 +19,9 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Facebook } from '@ionic-native/facebook';
 import { Sim } from '@ionic-native/sim';
-
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Firebase } from '@ionic-native/firebase';
+
 import { UtilProvider } from '../providers/util/util';
 import { FireProvider } from '../providers/fire/fire';
 import { HttpModule, Http } from '@angular/http';
@@ -67,6 +68,7 @@ const config = {
     HeaderColor,
     ScreenOrientation,
     CallNumber,
+    Firebase,
     FireProvider,
     Facebook,
     Sim

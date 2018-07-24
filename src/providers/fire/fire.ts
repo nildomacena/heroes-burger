@@ -1,3 +1,4 @@
+import { Firebase } from '@ionic-native/firebase';
 import { Platform , Events} from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
@@ -15,7 +16,13 @@ export class FireProvider {
   public authState = this.afAuth.authState;
   public carrinho: any;
 
-  constructor(private afAuth: AngularFireAuth, public platform: Platform, public fb: Facebook, public events: Events) {
+  constructor(
+    private afAuth: AngularFireAuth, 
+    public platform: Platform, 
+    public fb: Facebook, 
+    public events: Events,
+    public firebaseNative: Firebase
+  ) {
     this.carrinho = {
       valor_total: 0,
       quantidadeItens: 0,
@@ -92,6 +99,10 @@ export class FireProvider {
   }
   signOut() {
     this.afAuth.auth.signOut();
+  }
+
+  ouvirNotificacoes(){
+    return this.firebaseNative.onNotificationOpen();
   }
 
 }

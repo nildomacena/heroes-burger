@@ -23,6 +23,7 @@
     "@ionic-native/call-number": "^4.3.1",
     "@ionic-native/core": "3.12.1",
     "@ionic-native/facebook": "^4.3.2",
+    "@ionic-native/firebase": "^4.10.0",
     "@ionic-native/google-maps": "^4.3.2",
     "@ionic-native/header-color": "^4.3.2",
     "@ionic-native/screen-orientation": "^4.3.2",
@@ -33,9 +34,10 @@
     "angularfire2": "^5.0.0-rc.4",
     "brmasker-ionic-3": "^1.0.3",
     "call-number": "^1.0.1",
-    "cordova-android": "^6.2.3",
+    "cordova-android": "6.3.0",
     "cordova-plugin-device": "^1.1.6",
     "cordova-plugin-facebook4": "^1.7.4",
+    "cordova-plugin-firebase": "^1.0.5",
     "cordova-plugin-googlemaps": "^2.0.11",
     "cordova-plugin-headercolor": "^1.0.0",
     "cordova-plugin-screen-orientation": "git+https://github.com/Exilz/cordova-plugin-screen-orientation.git",
@@ -81,7 +83,8 @@
       "cordova-plugin-facebook4": {
         "APP_ID": "1289209431183232",
         "APP_NAME": "Hero"
-      }
+      },
+      "cordova-plugin-firebase": {}
     },
     "platforms": [
       "android"

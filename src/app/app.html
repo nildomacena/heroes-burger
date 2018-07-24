@@ -17,7 +17,7 @@
       <ion-grid align-items-center>
         <ion-row>
           <ion-col col-4 align-self-center>
-            <img [src]="fire.user.photoURL" alt="" class="avatar" >
+            <img [src]="fire.user.providerData[0].photoURL" alt="" class="avatar" >
           </ion-col>
           <ion-col col-8 align-self-center>
             <p color="fb-color" class="nome-login" (click)="login()" >{{fire.user.displayName}}</p>

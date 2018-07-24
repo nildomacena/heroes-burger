@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "988738797804",
+    "firebase_url": "https://hero-burguer.firebaseio.com",
+    "project_id": "hero-burguer",
+    "storage_bucket": "hero-burguer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988738797804:android:bd1e4310659ec099",
+        "android_client_info": {
+          "package_name": "com.koine.heroburguer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988738797804-2c40t26ajupdirkfia39uk5vu286iv8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcZlYCt8lF6MR2hAdJAyS26j6odGCN0io"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
